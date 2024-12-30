@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --primary-font: 'Playfair Display', serif;
+    --secondary-font: 'Roboto', sans-serif;
+    --primary-color: #2596be;
+    --secondary-color: #f7f7f7;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* Fixed box-sizing */
+    background: var(--secondary-color);
+}
+
+main {
+    padding: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    /* Color of the slanting line */
+    transform: skewY(-10deg);
+    /* This will create the slant effect */
+    transform-origin: top left;
+    /* Keep the slant behind the content */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    z-index: 1;
+}
+
+.img-con img {
+    width: 250px;
+    position: relative;
+    /* Ensure image appears above the background */
+    z-index: -1;
+}
+
+.img-con h1 {
+    margin: -44px 0 0 0;
+    font-family: var(--primary-font);
+    text-align: center;
+    color: var(--secondary-color);
+    z-index: 1;
+}
+
+.about-me-con {
+    padding: 20px;
+    background: var(--secondary-color);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.about-me-con h2 {
+    font-family: var(--primary-font);
+}
+
+.about-me-con p {
+    font-family: var(--secondary-font);
+}
+
+.link-con {
+    padding: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.social-icon {
+    padding: 10px;
+    width: 24px;
+}
+
+section {
+    padding: 40px;
+}
+
+section h1 {
+    font-family: var(--primary-font);
+    font-size: 2rem;
+}
+
+.projects-con {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px
+}
+
+.project {
+    max-width: 450px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.project>img {
+    width: 100%;
+}
+
+.project-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.project-title-container h2 {
+    font-family: var(--primary-font);
+}
+
+.project-icon-con {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.project-link-icon {
+    width: 25px;
+}
+
+.project-description {
+    padding: 0 10px;
+    font-family: var(--secondary-font);
+}
+
+footer {
+    padding: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--primary-color);
+}
+
+.contact-con {
+    max-width: 500px;
+}
+
+.contact-con h1 {
+    color: var(--secondary-color);
+    font-family: var(--primary-font);
+    font-size: 2.5rem;
+}
+
+.address,
+.number,
+.email,
+.description {
+    margin: 40px 0;
+    color: var(--secondary-color);
+    align-items: center;
+    font-family: var(--secondary-font);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.number img,
+.email img {
+    width: 30px;
+}
+
+
+.profile-con {
+    max-width: 450px;
+}
+
+.profile-con>img {
+    width: 100%;
+}
+
+/* Mobile View: Projects displayed as block */
+@media (max-width: 767px) {
+    .projects-con {
+        display: block;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Tablet View: Projects displayed in two columns */
+@media (min-width: 768px) and (max-width: 991px) {
+    .projects-con {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+/* Desktop View: Default grid layout remains unchanged */
+@media (min-width: 992px) {
+    .projects-con {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 50px;
+    }
+}
